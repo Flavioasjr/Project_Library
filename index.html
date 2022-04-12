@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,37 +9,60 @@
     <link rel="stylesheet" href="./style.css">
     <script src="./main.js" defer></script>
 </head>
+
 <body>
-    <h1>My Library</h1>
+    <div class="container">
 
-    <button type="submit" class="btn_add_book">Add Book</button>
-    <button type="submit" class="btn_show_books">Show Books</button>
+        <div class="library">
+            <img class="img-title" src="./images/pexels-ricardo-esquivel-1907785.jpg" alt="">
+
+            <div class="content">
+                <div class="content-title">
+                    <h1 class="library-title">My Library</h1>
+                    <p class="library-subtitle">Add and view your books.</p>
+                    <button type="submit" class="btn_form_add_book">New Book</button>
+                    <button type="submit" class="btn_show_books">Show Books</button>
+                </div>
+
+            </div>
+            
+            
+        </div>
+        <div class="add_book">
+            <div class="form-add">
+                <h2>Add Your Book</h2>
+                <form action="" method="post">
+                    <ul class="list-input">
+                        <li>
+                            <label class="labels" for="title">Título</label>
+                            <input type="text" id="title" name="title">
+                        </li>
+                        <li>
+                            <label class="labels" for="author">Author</label>
+                            <input type="text" id="author" name="author">
+                        </li>
+                        <li>
+                            <label class="labels" for="pages">Number Of Pages</label>
+                            <input type="text" id="pages" name="pages">
+                        </li>
+                        <li> Book Read?
+                            <label for="read">Yes</label>
+                            <input type="radio" id="read" name="read" value="yes">
     
-    <div class="add_book">
-        <form action="" method="post">
-            <ul>
-                <li>
-                    <label for="title">Título</label>
-                    <input type="text" id="title" name="title">
-                </li>
-                <li>
-                    <label for="author">Author</label>
-                    <input type="text" id="author" name="author">
-                </li>
-                <li>
-                    <label for="pages">Number Of Pages</label>
-                    <input type="text" id="pages" name="pages">
-                </li>
-                <li> Book Read?
-                    <label for="read">Yes</label>
-                    <input type="radio" id="read" name="read" value="yes">
+                            <label for="read">No</label>
+                            <input type="radio" id="read" name="read" value="no" checked>
+                        </li>
+                        <button type="submit" class="btn_add_book">Add Book</button>
+                    </ul>
+                </form>
 
-                    <label for="read">No</label>
-                    <input type="radio" id="read" name="read" value="no" checked>
-                </li>
-            </ul>
-            <button type="submit">Add Book</button>
-        </form>
+            </div>
+        </div>
+
+        <div class="show_books">
+            <ul class="list_card_book"></ul>
+        </div>
     </div>
 </body>
+
 </html>

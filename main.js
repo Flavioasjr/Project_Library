@@ -12,7 +12,7 @@ function addBookToLibrary(book) {
 }
 
 function removeBookToLibrary(bookPosition) {
-
+    myLibrary.splice(bookPosition, 1);
 }
 
 function showLibrary() {
@@ -47,6 +47,7 @@ function showLibrary() {
         buttonRead.classList.add('btn-read-book');
         buttonRemove.classList.add('btn-remove-book');
 
+        buttonRead.dataset.postion = i;
         buttonRemove.dataset.postion = i;
 
         h3.textContent = myLibrary[i].title;
@@ -68,6 +69,32 @@ function showLibrary() {
         ul.appendChild(div);
         div.appendChild(buttonRead);
         div.appendChild(buttonRemove);
+    }
+
+    const btnRemoveBook = document.querySelectorAll('.btn-remove-book');
+
+    if(btnRemoveBook) {
+        for( let remove of btnRemoveBook) {
+            remove.addEventListener('click', e => {
+                removeBookToLibrary(Number(remove.dataset.postion));
+                
+                listCardBook.innerHTML = '';
+                showLibrary();
+            });
+        }
+    }
+
+    const btnReadBook = document.querySelectorAll('.btn-read-book');
+
+    if(btnReadBook) {
+        for( let read of btnReadBook) {
+            read.addEventListener('click', e => {
+                myLibrary[Number(read.dataset.postion)].bookRead = 'yes';
+                
+                listCardBook.innerHTML = '';
+                showLibrary();
+            });
+        }
     }
 
     btnShowBooks.addEventListener('click', e => {
@@ -114,6 +141,7 @@ btnAddBook.addEventListener('click', e => {
     inputPages.value = '';
     
     window.location.href = '#library';
+    showBooks.style.display = 'none';
 });
 
 const btnShowBooks = document.querySelector('.btn_show_books');
@@ -122,13 +150,3 @@ btnShowBooks.addEventListener('click', e => {
     showLibrary();
     showBooks.style.display = 'block';
 });
-
-const btnRemoveBook = document.querySelector('.btn-remove-book');
-
-console.log(btnRemoveBook);
-
-if(btnRemoveBook) {
-    btnRemoveBook.addEventListener('click', e => {
-        console.log(btnRemoveBook.dataset.postion);
-    });
-}

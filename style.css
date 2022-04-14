@@ -25,6 +25,7 @@ body {
     background-color: #ebebeb75;
     display: flex;
     gap: 40px;
+    justify-content: center;
 }
 
 .img-title {

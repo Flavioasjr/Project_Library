@@ -13,55 +13,55 @@
 <body>
     <div class="container">
 
-        <div class="library" id="library">
+        <div class="library">
             <img class="img-title" src="./images/pexels-ricardo-esquivel-1907785.jpg" alt="">
 
             <div class="content">
                 <div class="content-title">
                     <h1 class="library-title">My Library</h1>
-                    <p class="library-subtitle">Add and view your books.</p>
-                    <a href="#add_book">
+                    <p class="library-subtitle">Add and view status of your books.</p>
+                    <div>
                         <button type="submit" class="btn_new_book">New Book</button>
-                    </a>
-                    <a href="#show_books">
-                        <button type="submit" class="btn_show_books">Show Books</button>
-                    </a>
+                        <a href="#show_books">
+                            <button type="submit" class="btn_show_books">Show Books</button>
+                        </a>
+                    </div>
                 </div>
 
+                <div class="add_book">
+                    <div class="form-add">
+                        <h2 class="form-title">Add Your Book</h2>
+                        <form action="" method="post">
+                            <ul class="list-input">
+                                <li>
+                                    <label class="labels" for="title">Title</label>
+                                    <input class="inputs" type="text" id="title" name="title" required>
+                                    <div class="missing-data-form"></div>
+                                </li>
+                                <li>
+                                    <label class="labels" for="author">Author</label>
+                                    <input class="inputs" type="text" id="author" name="author">
+                                </li>
+                                <li>
+                                    <label class="labels" for="pages">Pages</label>
+                                    <input class="inputs" type="text" id="pages" name="pages">
+                                </li>
+                                <li>
+                                    <label for="read">Book Read? Yes</label>
+                                    <input type="radio" id="read" name="read" value="yes">
+
+                                    <label for="read">No</label>
+                                    <input type="radio" id="read" name="read" value="no" checked>
+                                </li>
+                                <button type="submit" class="btn_add_book">Add Book</button>
+                            </ul>
+                        </form>
+
+                    </div>
+                </div>
             </div>
 
 
-        </div>
-        <div class="add_book" id="add_book">
-            <div class="form-add">
-                <h2 class="form-title">Add Your Book</h2>
-                <form action="" method="post">
-                    <ul class="list-input">
-                        <li>
-                            <label class="labels" for="title">Title</label>
-                            <input class="inputs" type="text" id="title" name="title" required>
-                            <div class="missing-data-form"></div>
-                        </li>
-                        <li>
-                            <label class="labels" for="author">Author</label>
-                            <input class="inputs" type="text" id="author" name="author">
-                        </li>
-                        <li>
-                            <label class="labels" for="pages">Pages</label>
-                            <input class="inputs" type="text" id="pages" name="pages">
-                        </li>
-                        <li>
-                            <label for="read">Book Read? Yes</label>
-                            <input type="radio" id="read" name="read" value="yes">
-
-                            <label for="read">No</label>
-                            <input type="radio" id="read" name="read" value="no" checked>
-                        </li>
-                        <button type="submit" class="btn_add_book">Add Book</button>
-                    </ul>
-                </form>
-
-            </div>
         </div>
 
         <div class="show_books" id="show_books">

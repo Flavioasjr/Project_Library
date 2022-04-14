@@ -3,7 +3,7 @@
 }
 
 body {
-    margin: 0 10px;
+    margin: 0;
     
 }
 
@@ -17,7 +17,7 @@ body {
 }
 
 .content-title {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     padding-left: 15px;
 }
 
@@ -45,8 +45,6 @@ body {
 
 .add_book {
     display: none;
-    background-color: #f9f9f9;
-    padding: 30px 0;
     justify-content: center;
 }
 
@@ -169,7 +167,7 @@ input:invalid ~.missing-data-form::after {
 
 .list_card_book {
     padding: 0;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(410px, 1fr));
     display: grid;
     gap: 10px;
     margin: 0;
@@ -189,4 +187,49 @@ li {
 a {
     text-decoration: none;
     color: white;
+}
+
+@media screen and (max-width: 674px) {
+    .img-title {
+        display: none;
+    }
+
+    .library {
+        min-height: 100vh;
+        background-image: url("./images/pexels-ricardo-esquivel-1907785.jpg");
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    .content-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+    }
+
+    .library-title {
+        background: radial-gradient(black, transparent);
+    }
+
+    .library-subtitle {
+        text-align: center;
+        background: radial-gradient(black, transparent);
+    }
+
+    .add_book {
+        margin-bottom: 10px;
+    }
+
+    .list_card_book {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .form-title {
+        background-color: #ffffffcc;
+    }
+    
+    .form-add {
+        background-color: #737373b3;
+    }
 }

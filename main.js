@@ -17,7 +17,11 @@ function removeBookToLibrary(bookPosition) {
 
 function showLibrary() {
     const listCardBook = document.querySelector('.list_card_book');
+    listCardBook.innerHTML = '';
     
+    const emptyLibrary = document.querySelector('.empty-library');
+    if(emptyLibrary) emptyLibrary.parentNode.removeChild(emptyLibrary); 
+
     if (myLibrary.length === 0) {
         const p = document.createElement('p');
         p.classList.add('empty-library');
@@ -28,8 +32,6 @@ function showLibrary() {
         return;
     }
 
-    const emptyLibrary = document.querySelector('.empty-library');
-    if(emptyLibrary) emptyLibrary.parentNode.removeChild(emptyLibrary);    
 
     for (let i=0; i < myLibrary.length; i++) {
         const liCard = document.createElement('li');
@@ -78,7 +80,6 @@ function showLibrary() {
             remove.addEventListener('click', e => {
                 removeBookToLibrary(Number(remove.dataset.postion));
                 
-                listCardBook.innerHTML = '';
                 showLibrary();
             });
         }
@@ -91,14 +92,12 @@ function showLibrary() {
             read.addEventListener('click', e => {
                 myLibrary[Number(read.dataset.postion)].bookRead = 'yes';
                 
-                listCardBook.innerHTML = '';
                 showLibrary();
             });
         }
     }
 
     btnShowBooks.addEventListener('click', e => {
-        listCardBook.innerHTML = '';
         showLibrary();        
     });
 
@@ -108,9 +107,11 @@ const btnNewBokk = document.querySelector('.btn_new_book');
 const addBook = document.querySelector('.add_book');
 const btnAddBook = document.querySelector('.btn_add_book');
 const showBooks = document.querySelector('.show_books');
+const content = document.querySelector('.content');
 
 btnNewBokk.addEventListener('click', e => {
     addBook.style.display = 'flex';
+    content.style.cssText = 'flex-direction: column;';
 });
 
 btnAddBook.addEventListener('click', e => {
@@ -136,12 +137,13 @@ btnAddBook.addEventListener('click', e => {
 
     addBookToLibrary(book);
 
+    showLibrary();
     inputTitle.value = '';
     inputAuthor.value = '';
     inputPages.value = '';
     
-    window.location.href = '#library';
-    showBooks.style.display = 'none';
+    content.style.cssText = 'flex-direction: row;';
+    addBook.style.display = 'none';
 });
 
 const btnShowBooks = document.querySelector('.btn_show_books');

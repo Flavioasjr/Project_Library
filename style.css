@@ -100,6 +100,12 @@ body {
     box-shadow: 0px 2px 5px 1px #a9bfeb;
 }
 
+.error {
+    display: block;
+    font-size: 0.8rem;
+    color: red;
+}
+
 .btn_add_book, .btn_new_book, .btn_show_books, 
 .btn-read-book, .btn-remove-book {
     border: 2px solid #34d399;

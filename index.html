@@ -31,16 +31,18 @@
                 <div class="add_book">
                     <div class="form-add">
                         <h2 class="form-title">Add Your Book</h2>
-                        <form action="" method="post">
+                        <form action="" method="post" novalidate>
                             <ul class="list-input">
                                 <li>
                                     <label class="labels" for="title">Title</label>
                                     <input class="inputs" type="text" id="title" name="title" required>
-                                    <div class="missing-data-form"></div>
+                                    <!-- <div class="missing-data-form"></div> -->
+                                    <span class="error"></span>
                                 </li>
                                 <li>
                                     <label class="labels" for="author">Author</label>
-                                    <input class="inputs" type="text" id="author" name="author">
+                                    <input class="inputs" type="text" id="author" name="author" required>
+                                    <span class="error"></span>
                                 </li>
                                 <li>
                                     <label class="labels" for="pages">Pages</label>

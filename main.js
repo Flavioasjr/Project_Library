@@ -9,13 +9,6 @@ class Book {
     }
 }
 
-// function Book (title, author, numberOfPages, bookRead) {
-//     this.title = title;
-//     this.author = author;
-//     this.numberOfPages = numberOfPages;
-//     this.bookRead = bookRead;
-// }
-
 function addBookToLibrary(book) {
     myLibrary.push(book);
 }
@@ -112,6 +105,24 @@ function showLibrary() {
 
 }
 
+function checkInputData() {
+    const inputTitle = document.querySelector('#title');
+    const inputAuthor = document.querySelector('#author');
+    const error = document.querySelectorAll('.error');
+    let check = true;
+
+    if(inputTitle.validity.valueMissing) {
+        error[0].textContent += 'You need to enter a tittle.';
+        check = false;
+    } 
+
+    if(inputAuthor.validity.valueMissing) {
+        error[1].textContent += 'You need to enter a author.';
+        check = false;
+    } 
+    return check;
+}
+
 const btnNewBokk = document.querySelector('.btn_new_book');
 const addBook = document.querySelector('.add_book');
 const btnAddBook = document.querySelector('.btn_add_book');
@@ -126,6 +137,10 @@ btnNewBokk.addEventListener('click', e => {
 btnAddBook.addEventListener('click', e => {
     e.preventDefault();
 
+    const checkInput = checkInputData();
+
+    if(!checkInput) return;
+
     let bookRead = '';
     const inputTitle = document.querySelector('#title');
     const inputAuthor = document.querySelector('#author');
@@ -139,7 +154,6 @@ btnAddBook.addEventListener('click', e => {
     }
 
     if (inputTitle.value === '') return;
-    
 
     const book = new Book(inputTitle.value, inputAuthor.value, 
         inputPages.value, bookRead);
